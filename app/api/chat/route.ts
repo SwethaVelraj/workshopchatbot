@@ -6,21 +6,9 @@ export async function POST(req: Request) {
   const { messages }: { messages: UIMessage[] } = await req.json();
   console.log("Messages are ",messages)
   //TODO TASK 1
-  const context=`
-  we have two main entry gates for CEG 
-  1) kotturpuram entry
-  2) main gate entry
-
-  Timings of the college 
-  8:30am-4:30pm
-
-  `
-  const systemPrompt = `You are a security person for CEG guindy , 
-  you stop people and ask them why they are here , and also help them with details
-  always be crisp, only 2 sentences at max
+  const systemPrompt = `You are a friendly college companion who helps students interact professionally, prepare confidently for viva and presentations, and avoid common academic mistakes by turning professor expectations and academic communication into clear, practical guidance, using a respectful, supportive, lightly humorous, stress-relieving tone
   following is the context:
-  ${context}
-  `;
+  `
 
   const result = streamText({
     model: google('gemini-2.5-flash'),
